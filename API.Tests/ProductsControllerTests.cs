@@ -7,18 +7,19 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Net.Http.Headers;
 using System.Text.Json;
+using System.Net.Http.Json;
 
 namespace API.Tests
 {
     public class ProductsControllerTests
     {
-        private readonly WebApplicationFactory<Program> _factory;
+        private readonly CustomWebApplicationFactory _factory;
         private readonly HttpClient _client;
 
         public ProductsControllerTests()
         {
             _factory =
-                new WebApplicationFactory<Program>();
+                 new CustomWebApplicationFactory();
 
             _client =
                 _factory.CreateClient();
@@ -75,14 +76,16 @@ namespace API.Tests
                 Encoding.UTF8,
                 "application/json");
 
-            var response = await _client.PostAsync(
-                "/api/Auth/login",
-                content);
+            var response = await _client.PostAsJsonAsync("/api/Auth/login", loginRequest);
+
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine($"LOGIN STATUS: {(int)response.StatusCode} - {response.StatusCode}");
+            Console.WriteLine($"LOGIN RESPONSE: {responseBody}");
 
             response.EnsureSuccessStatusCode();
 
-            var responseBody =
-                await response.Content.ReadAsStringAsync();
+           
 
             using var document =
                 JsonDocument.Parse(responseBody);
