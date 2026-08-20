@@ -1,42 +1,24 @@
-<<<<<<< HEAD
-# CRN Technical Assessment - RESTful Backend API
+# CRN Technical Assessment – RESTful Backend API
 
 ## Overview
 
-This project is a RESTful Backend API developed using .NET 8, ASP.NET Core Web API, Entity Framework Core, and SQL Server.
+This project is a RESTful Backend API developed as part of the CRN Technical Assessment using .NET 8 and C#.
 
-The application provides APIs for user authentication and Product CRUD operations.
-=======
-# CRN Technical Assessment
-
-## Overview
-
-RESTful Backend API Solution developed using .NET 8 and C#.
->>>>>>> d015fe1e6e352292cc7f9cd0b87fb987c39b29d4
+The application provides user authentication and Product CRUD operations using ASP.NET Core Web API, Entity Framework Core, and SQL Server.
 
 ## Tech Stack
 
 - .NET 8
-<<<<<<< HEAD
 - C#
 - ASP.NET Core Web API
-- Entity Framework Core
-- SQL Server
-- JWT Authentication
-- Swagger / OpenAPI
-- Docker
-- Docker Compose
-=======
-- ASP.NET Core Web API
-- C#
 - Entity Framework Core
 - SQL Server
 - JWT Authentication
 - Refresh Token
 - Swagger / OpenAPI
->>>>>>> d015fe1e6e352292cc7f9cd0b87fb987c39b29d4
 - xUnit
 - Moq
+- WebApplicationFactory
 
 ## Architecture
 
@@ -46,21 +28,36 @@ The solution follows a layered architecture:
 - Application
 - Domain
 - Infrastructure
-<<<<<<< HEAD
+
+This architecture helps maintain separation of concerns, scalability, maintainability, and testability.
 
 ## Features
 
+### Authentication
+
 - User Registration
 - User Login
-- JWT Authentication
-- Product CRUD
+- JWT Access Token
+- Refresh Token
+- Authentication and Authorization
+
+### Product Management
+
+- Create Product
+- Get All Products
+- Get Product by ID
+- Update Product
+- Delete Product
+
+### Other Features
+
 - Entity Framework Core
-- SQL Server database
-- Global error handling
-- Input validation
-- Swagger API documentation
-- Docker support
-- Docker Compose support
+- SQL Server Database
+- Input Validation
+- Global Error Handling
+- Swagger API Documentation
+- Unit Testing
+- Integration Testing
 
 ## API Endpoints
 
@@ -77,109 +74,53 @@ The solution follows a layered architecture:
 |---|---|---|
 | GET | `/api/Products` | Get all products |
 | GET | `/api/Products/{id}` | Get product by ID |
-| POST | `/api/Products` | Create product |
-| PUT | `/api/Products/{id}` | Update product |
-| DELETE | `/api/Products/{id}` | Delete product |
+| POST | `/api/Products` | Create a new product |
+| PUT | `/api/Products/{id}` | Update an existing product |
+| DELETE | `/api/Products/{id}` | Delete a product |
 
-## Running Locally
+## Prerequisites
 
-### Prerequisites
+Before running the application, make sure the following are installed:
 
 - .NET 8 SDK
-- SQL Server
 - Visual Studio 2022
-- Docker Desktop
+- SQL Server
+- SQL Server Management Studio
 
-### Database
+## Database Configuration
 
-Create the required SQL Server database and configure the connection string in `appsettings.json`.
+The application uses SQL Server with Entity Framework Core.
 
-### Run Application
-
-```bash
-dotnet restore
-dotnet build
-dotnet run
-
-# CRN Technical Assessment
-
-## Project Overview
-
-## Technologies Used
-
-## Features
-
-## API Endpoints
-
-## Authentication
-
-## Database
-
-## Docker Setup
-
-## Running the Application
-
-## Running Tests
-
-## Test Results
-
-## Running the Application
-
-1. Clone the repository.
-2. Open the solution in Visual Studio.
-3. Start Docker Desktop.
-4. Run:
-
-docker compose up --build
-
-5. Open Swagger.
-
-## Running Tests
-
-dotnet test
-=======
-- API.Tests
-- Application.Tests
-- Infrastructure.Tests
-
-## Features
-
-- Product CRUD operations
-- User authentication
-- JWT access token
-- Refresh token
-- Entity Framework Core
-- SQL Server database
-- Swagger API documentation
-- Unit and integration tests
-
-## How to Run
-
-1. Clone the repository.
-2. Open `CRNTechnicalAssessment.sln` in Visual Studio 2022.
-3. Update the SQL Server connection string in `appsettings.json`.
-4. Apply database migrations.
-5. Run the API project.
-6. Open Swagger to test the APIs.
-
-## Database
-
-Database used:
+Database name:
 
 `CRNTechnicalAssessmentDB`
 
-## Testing
+Update the SQL Server connection string in:
 
-Tests are implemented using:
+`appsettings.json`
 
-- xUnit
-- Moq
-- WebApplicationFactory
->>>>>>> d015fe1e6e352292cc7f9cd0b87fb987c39b29d4
+### Example Configuration
 
-# CRN Technical Assessment – RESTful Backend API
+> The credentials below are placeholders. Do not commit real passwords, JWT secrets, or other sensitive credentials to GitHub.
 
-## Overview
-
-This project is a RESTful Backend API developed using .NET 8,
-ASP.NET Core Web API, Entity Framework Core, and SQL Server.
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=YOUR_SERVER;Database=CRNTechnicalAssessmentDB;User Id=YOUR_USERNAME;Password=YOUR_PASSWORD;TrustServerCertificate=True;"
+  },
+  "Jwt": {
+    "Key": "YOUR_JWT_SECRET_KEY",
+    "Issuer": "CRNTechnicalAssessment",
+    "Audience": "CRNTechnicalAssessmentUsers",
+    "ExpiryMinutes": 60,
+    "AccessTokenMinutes": 15,
+    "RefreshTokenDays": 7
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
