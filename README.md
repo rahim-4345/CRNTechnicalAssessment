@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CRN Technical Assessment - RESTful Backend API
 
 ## Overview
@@ -5,10 +6,18 @@
 This project is a RESTful Backend API developed using .NET 8, ASP.NET Core Web API, Entity Framework Core, and SQL Server.
 
 The application provides APIs for user authentication and Product CRUD operations.
+=======
+# CRN Technical Assessment
+
+## Overview
+
+RESTful Backend API Solution developed using .NET 8 and C#.
+>>>>>>> d015fe1e6e352292cc7f9cd0b87fb987c39b29d4
 
 ## Tech Stack
 
 - .NET 8
+<<<<<<< HEAD
 - C#
 - ASP.NET Core Web API
 - Entity Framework Core
@@ -17,6 +26,15 @@ The application provides APIs for user authentication and Product CRUD operation
 - Swagger / OpenAPI
 - Docker
 - Docker Compose
+=======
+- ASP.NET Core Web API
+- C#
+- Entity Framework Core
+- SQL Server
+- JWT Authentication
+- Refresh Token
+- Swagger / OpenAPI
+>>>>>>> d015fe1e6e352292cc7f9cd0b87fb987c39b29d4
 - xUnit
 - Moq
 
@@ -28,6 +46,7 @@ The solution follows a layered architecture:
 - Application
 - Domain
 - Infrastructure
+<<<<<<< HEAD
 
 ## Features
 
@@ -118,3 +137,49 @@ docker compose up --build
 ## Running Tests
 
 dotnet test
+=======
+- API.Tests
+- Application.Tests
+- Infrastructure.Tests
+
+## Features
+
+- Product CRUD operations
+- User authentication
+- JWT access token
+- Refresh token
+- Entity Framework Core
+- SQL Server database
+- Swagger API documentation
+- Unit and integration tests
+
+## How to Run
+
+1. Clone the repository.
+2. Open `CRNTechnicalAssessment.sln` in Visual Studio 2022.
+3. Update the SQL Server connection string in `appsettings.json`.
+4. Apply database migrations.
+5. Run the API project.
+6. Open Swagger to test the APIs.
+
+## Database
+
+Database used:
+
+`CRNTechnicalAssessmentDB`
+
+## Testing
+
+Tests are implemented using:
+
+- xUnit
+- Moq
+- WebApplicationFactory
+>>>>>>> d015fe1e6e352292cc7f9cd0b87fb987c39b29d4
+
+# CRN Technical Assessment – RESTful Backend API
+
+## Overview
+
+This project is a RESTful Backend API developed using .NET 8,
+ASP.NET Core Web API, Entity Framework Core, and SQL Server.
